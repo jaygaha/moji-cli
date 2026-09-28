@@ -8,8 +8,8 @@ from pathlib import Path
 from typing import List, Any, Dict, Optional
 from dataclasses import asdict
 
-from src.data.models import Segment
-from src.utils.utils import run_cmd
+from moji.data.models import Segment
+from moji.utils.utils import run_cmd
 
 def determine_asr_backend(args: argparse.Namespace) -> str:
     """Select the ASR backend.

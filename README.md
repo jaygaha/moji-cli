@@ -41,21 +41,28 @@ Powered by **Apple MLX Whisper** for speech-to-text and **Ollama (`translategemm
 
 ## Installation
 
-1. Clone or navigate into the repository:
-   ```bash
-   cd moji-cli
-   ```
+### Option 1: Global Install via `pipx` (Recommended)
 
-2. Create and activate a Python virtual environment:
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   ```
+Install and run `moji` globally from anywhere on your Mac:
 
-3. Install required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+pipx install git+https://github.com/jaygaha/moji-cli.git
+```
+
+To run once without permanent install:
+```bash
+pipx run --spec git+https://github.com/jaygaha/moji-cli.git moji meeting.mp4
+```
+
+### Option 2: Clone & Development Install
+
+```bash
+git clone git@github.com:jaygaha/moji-cli.git
+cd moji-cli
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
 
 ---
 
@@ -66,6 +73,8 @@ Powered by **Apple MLX Whisper** for speech-to-text and **Ollama (`translategemm
 Transcribe and translate a media file (`.mp4`, `.m4a`, `.wav`, `.mkv`, etc.):
 
 ```bash
+moji "/path/to/meeting.mp4"
+# or when developing locally:
 python main.py "/path/to/meeting.mp4"
 ```
 
@@ -76,7 +85,7 @@ All outputs will be saved in the same directory as the input file (or specify `-
 If a run was stopped, or you want to regenerate subtitles without re-transcribing or re-translating:
 
 ```bash
-python main.py --resume "/path/to/meeting.mp4"
+moji --resume "/path/to/meeting.mp4"
 ```
 
 ### Transcription Only (Skip Translation)
@@ -84,7 +93,7 @@ python main.py --resume "/path/to/meeting.mp4"
 To only generate Japanese transcripts and subtitles without running Ollama translation:
 
 ```bash
-python main.py --skip-translate "/path/to/meeting.mp4"
+moji --skip-translate "/path/to/meeting.mp4"
 ```
 
 ---

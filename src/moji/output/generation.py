@@ -6,7 +6,7 @@ import argparse
 import json
 from pathlib import Path
 from typing import Optional, Dict, Any, List
-from src.data.models import Segment
+from moji.data.models import Segment
 
 def ts_parts(ts: float) -> tuple[int, int, int, int]:
     total_ms = max(0, int(round(ts * 1000)))
