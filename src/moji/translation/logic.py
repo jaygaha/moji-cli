@@ -1,9 +1,6 @@
-# src/translation/logic.py
-
 import argparse
-from src.translation.client import OllamaClient
-from src.data.models import Segment
-from src.translation.client import OllamaError
+from moji.translation.client import OllamaClient, OllamaError
+from moji.data.models import Segment
 import json
 import re
 import logging
